@@ -13,30 +13,29 @@ st.set_page_config(page_title="Healthy Heart App",page_icon="⚕️",layout="cen
 
 def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wifi ,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ):   
 
-     if gender == "Male":
-         gender = 1
-     else:
-         gender = 0
-     if cusType == "disloyal Customer":
-         cusType = 0
-     else:
-         cusType = 1
-     if typetrvl == "Business travel":
-         typetrvl = 0
-     else:
-         typetrvl = 1
-    
-     li_class = { "business": 0, "eco": 0, "eco plus": 0}
-     if items.cusClass in li_class:
-         li_class[items.cusClass] = 1
+    if gender == "Male":
+        gender = 1
+    else:
+        gender = 0
+    if cusType == "disloyal Customer":
+        cusType = 0
+    else:
+        cusType = 1
+    if typetrvl == "Business travel":
+        typetrvl = 0
+    else:
+        typetrvl = 1
 
-     age = (items.age - df["Age"].min()) / (df["Age"].max() - df["Age"].min())
-     distance = (items.distance - df["Flight Distance"].min()) / (df["Flight Distance"].max() - df["Flight Distance"].min())
+    li_class = { "business": 0, "eco": 0, "eco plus": 0}
+    if cusClass in li_class:
+        li_class[cusClass] = 1
 
-    user_input=[distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wifi ,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ]
+    age = (age - df["Age"].min()) / (df["Age"].max() - df["Age"].min())
+    distance = (distance - df["Flight Distance"].min()) / (df["Flight Distance"].max() - df["Flight Distance"].min())
+
+    user_input=[distance,depDelay,arrDelay,gender,cusType,age,typetrvl,wifi,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ]
     user_input=np.array(user_input)
     user_input=user_input.reshape(1,-1)
-    user_input=scal.fit_transform(user_input)
     prediction = model.predict(user_input)
 
     return prediction
@@ -73,7 +72,7 @@ bag = st.select_slider("Baggage handling?",options=["1","2", "3", "4", "5"])
 checkin = st.select_slider("Checkin service?",options=["1","2", "3", "4", "5"])
 inflight = st.select_slider("Inflight service?",options=["1","2", "3", "4", "5"])
 clean = st.select_slider("Cleanlines?",options=["1","2", "3", "4", "5"])
-class = st.selectbox('Customer Class?',("Business", "Eco", "Eco Plus")) 
+cusClass = st.selectbox('Customer Class?',("Business", "Eco", "Eco Plus")) 
 
 
 pred=preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wifi ,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass )
