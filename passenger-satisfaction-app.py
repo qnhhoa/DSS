@@ -4,10 +4,11 @@ import sklearn
 import numpy as np
 import pickle as pkl
 from sklearn.preprocessing import MinMaxScaler
+
 scal=MinMaxScaler()
 
 #Load the saved model
-model = pickle.load(open("rf_model.pkl", "rb"))
+model = pkl.load(open("rf_model.pkl", "rb"))
 
 st.set_page_config(page_title="Healthy Heart App",page_icon="⚕️",layout="centered",initial_sidebar_state="expanded")
 
