@@ -9,7 +9,7 @@ scal=MinMaxScaler()
 #Load the saved model
 model = pkl.load(open("rf_model.pkl", "rb"))
 
-st.set_page_config(page_title="Healthy Heart App",page_icon="⚕️",layout="centered",initial_sidebar_state="expanded")
+st.set_page_config(page_title="Passenger Satisfaction App",page_icon="⚕️",layout="centered",initial_sidebar_state="expanded")
 
 def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wifi ,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ):   
 
@@ -48,7 +48,7 @@ html_temp = """
       
 # display the front end aspect
 st.markdown(html_temp, unsafe_allow_html = True) 
-st.subheader('by Amlan Mohanty ')
+st.subheader('by Quynh Hoa')
       
 # following lines create boxes in which user can enter data required to make prediction
 distance=st.number_input('Insert flight distance')
@@ -65,7 +65,7 @@ food = st.select_slider("Food and drink?",options=["1","2", "3", "4", "5"])
 board = st.select_slider("Online boarding?",options=["1","2", "3", "4", "5"])
 seat = st.select_slider("Seat comfort?",options=["1","2", "3", "4", "5"])
 entertain= st.select_slider("Inflight entertainment?",options=["1","2", "3", "4", "5"])
-onboard = st.select_slider("On-board service?",options=["1","2", "3", "4", "5"])
+onboard = st.select_slider("On-board service?",options=[1,2, 3, 4,5])
 leg = st.select_slider("Leg room service?",options=["1","2", "3", "4", "5"])
 bag = st.select_slider("Baggage handling?",options=["1","2", "3", "4", "5"])
 checkin = st.select_slider("Checkin service?",options=["1","2", "3", "4", "5"])
@@ -85,6 +85,6 @@ if st.button("Predict"):
     st.success('satisfied')
 
 
-st.sidebar.info("This web app is helps you to find out whether you are at a risk of developing a heart disease.")
-st.sidebar.info("Enter the required fields and click on the 'Predict' button to check whether you have a healthy heart")
+st.sidebar.info("This web app is helps you to find out whether passenger would be satisfied or not.")
+st.sidebar.info("Enter the required fields and click on the 'Predict' button to check answer.")
 
