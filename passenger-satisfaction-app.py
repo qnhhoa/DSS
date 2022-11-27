@@ -34,7 +34,7 @@ def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wif
     user_input=[distance,depDelay,arrDelay,gender,cusType,age,typetrvl,wifi,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,li_class["Eco"], li_class["Eco Plus"], li_class["Business"] ]
     user_input=np.array(user_input)
     user_input=user_input.reshape(1,-1)
-    user_input=scal.fit_transform(user_input)
+    # user_input=scal.fit_transform(user_input)
     prediction = model.predict(user_input)
 
     return prediction
@@ -42,7 +42,7 @@ def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wif
     # front end elements of the web page 
 html_temp = """ 
     <div style ="background-color:pink;padding:13px"> 
-    <h1 style ="color:black;text-align:center;">Healthy Heart App</h1> 
+    <h1 style ="color:black;text-align:center;">Passenger Satisfaction App</h1> 
     </div> 
     """
       
