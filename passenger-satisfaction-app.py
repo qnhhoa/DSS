@@ -6,7 +6,6 @@ import pickle as pkl
 from sklearn.preprocessing import MinMaxScaler
 
 scal=MinMaxScaler()
-
 #Load the saved model
 model = pkl.load(open("rf_model.pkl", "rb"))
 
