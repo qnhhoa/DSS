@@ -30,7 +30,8 @@ def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wif
     if cusClass in li_class:
         li_class[cusClass] = 1
 
-    user_input=[distance,depDelay,arrDelay,gender,cusType,age,typetrvl,wifi,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ]
+
+    user_input=[distance,depDelay,arrDelay,gender,cusType,age,typetrvl,wifi,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,li_class["eco"], li_class["eco plus"], li_class["business"] ]
     user_input=np.array(user_input)
     user_input=user_input.reshape(1,-1)
     user_input=scal.fit_transform(user_input)
