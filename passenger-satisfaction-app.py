@@ -33,7 +33,7 @@ def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wif
     user_input=[distance,depDelay,arrDelay,gender,cusType,age,typetrvl,wifi,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ]
     user_input=np.array(user_input)
     user_input=user_input.reshape(1,-1)
-    user_input=scal.fit_transform(user_input[0][1],user_input[0][2])
+    # user_input=scal.fit_transform(user_input[0][1],user_input[0][2])
     prediction = model.predict(user_input)
 
     return prediction
