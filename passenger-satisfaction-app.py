@@ -30,9 +30,6 @@ def preprocess(distance ,depDelay ,arrDelay ,gender ,cusType ,age ,typetrvl ,wif
     if cusClass in li_class:
         li_class[cusClass] = 1
 
-    age = (age - df["Age"].min()) / (df["Age"].max() - df["Age"].min())
-    distance = (distance - df["Flight Distance"].min()) / (df["Flight Distance"].max() - df["Flight Distance"].min())
-
     user_input=[distance,depDelay,arrDelay,gender,cusType,age,typetrvl,wifi,timeConve ,booking ,food ,board ,seat ,entertain ,onboard ,leg ,bag ,checkin ,inflight ,clean ,cusClass ]
     user_input=np.array(user_input)
     user_input=user_input.reshape(1,-1)
